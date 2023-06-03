@@ -8,6 +8,7 @@ const NewExpense = (props) =>
     {
         const expenseData = {
             ...enteredExpenseData,
+            // this is done to copy the expense data from the ExpenseForm
             id: Math.random().toString()
         };
         props.onAddExpense(expenseData);
@@ -15,6 +16,7 @@ const NewExpense = (props) =>
     return (
         <div className='new-expense'>
             <ExpenseForm onSaveExpenseData={ saveExpenseDataHandler } />
+            {/* onSaveExpenseData name has been given anyway it has no inbuilt significance, we can name our prop anything we wish to, so when the form is submitted the function("saveExpenseDataHandler" with parameter 'enteredExpenseData') inside it will be triggered(we are passing data from child to parent i.e. bottom-up) */}
         </div>
     );
 };
